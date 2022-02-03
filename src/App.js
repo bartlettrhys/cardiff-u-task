@@ -85,15 +85,24 @@ function App() {
             <h2>{learnMoreTarget.name}</h2>
             <p>{learnMoreTarget.description}</p>
             <h4>Programs</h4>
-            {learnMoreTarget.programs.map((program) => (
-              <Card key={program.id} className="my-2">
-                <Card.Body>
-                  <Card.Title>{program.title}</Card.Title>
-                  <p>{program.description_short}</p>
-                  <p>{program.start_time}</p>
-                </Card.Body>
-              </Card>
-            ))}
+            {learnMoreTarget.programs.map((program) => {
+              const startDate = new Date(program.start_time)
+              const endDate = new Date(program.end_time)
+              return (
+                <Card key={program.id} className="my-2">
+                  <Card.Body>
+                    <Card.Title>{program.title}</Card.Title>
+                    <p>{program.description_short}</p>
+                    <p>
+                      <b>Start:</b> {startDate.toUTCString()}
+                    </p>
+                    <p>
+                      <b>End:</b> {endDate.toUTCString()}
+                    </p>
+                  </Card.Body>
+                </Card>
+              )
+            })}
           </Row>
         </>
       )}
