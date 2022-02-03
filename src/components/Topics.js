@@ -8,7 +8,7 @@ const Topics = ({ topics, searchQuery, onClick }) => {
           topic.name.toLowerCase().includes(searchQuery.toLowerCase())
         )
         .map((topic) => (
-          <div className="col col-sm-6 col-md-4 my-2" key={topic.id}>
+          <div className="col-sm-6 col-md-4 my-2" key={topic.id}>
             <Card>
               <Card.Img
                 variant="top"
